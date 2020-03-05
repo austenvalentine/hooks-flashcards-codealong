@@ -33,7 +33,6 @@ function Card({ countries, changeRegion }) {
     setAnimation(PLAY);
     const timer = setTimeout(() => {
       setAnimation(STOP);
-      console.log(animation);
     }, 4000);
     setTimerID(timer);
   }
