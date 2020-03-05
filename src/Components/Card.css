@@ -7,42 +7,79 @@
     rgba(245, 216, 68, 1) 50%
   );
   background-size: 200%;
-  animation-name: progress;
-  animation-duration: 4s;
-  animation-timing-function: linear;
 }
 
-@keyframes progress {
+.progress-play {
+  animation: progress-play linear 3s forwards;
+}
+
+.progress-bar-stop {
+  background-position: 0%;
+}
+
+@keyframes progress-play {
   0% {
     background-position: 100%;
   }
-
   100% {
     background-position: 0%;
   }
 }
 
-.answer {
+.capital-name {
+  font-weight: bold;
+}
+
+.country-flag {
+  height: 100px;
+}
+
+.country-flag-play {
   opacity: 0;
-  animation-name: appear;
+  animation-name: country-flag-play;
+  animation-timing-function: linear;
   animation-duration: 1s;
-  animation-timing-function: ease-in;
   animation-delay: 3s;
   animation-fill-mode: forwards;
 }
 
-@keyframes appear {
+.country-flag-stop {
+  opacity: 1;
+}
+
+@keyframes country-flag-play {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
 
-.country-flag {
-  height: 100px;
+.country-name {
+  font-weight: bold;
+}
+
+.country-name-play {
+  opacity: 0;
+  animation-name: country-flag-play;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+
+.country-name-stop {
+  opacity: 1;
+}
+
+@keyframes country-play {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .country-flag img {
   height: 100%;
