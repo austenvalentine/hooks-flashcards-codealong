@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./Card.css";
 
-function Card({ countries, changeRegion }) {
+function Card({ countries, unsetRegion }) {
   const PLAY = "PLAY";
   const STOP = "STOP";
 
   const [country, setCountry] = useState(null);
-  const [animation, setAnimation] = useState(PLAY);
+  const [animation, setAnimation] = useState(STOP);
   const [timerID, setTimerID] = useState(null);
 
   useEffect(() => {
+    if (timerID === null && animation === PLAY) {
+      const timer = setTimeout(() => {
+        setAnimation(STOP);
+        setTimerID(null);
+      }, 4000);
+      setTimerID(timer);
+    }
+  }, [animation, country, countries, timerID]);
+
+  useEffect(() => {
     setCountry(countries[Math.floor(Math.random() * countries.length)]);
-    const timer = setTimeout(() => {
-      setAnimation(STOP);
-    }, 4000);
-    setTimerID(timer);
+    setAnimation(PLAY);
   }, [countries]);
 
   useEffect(() => {
@@ -23,18 +30,15 @@ function Card({ countries, changeRegion }) {
       // to prevent memory leak
       clearTimeout(timerID);
     };
-  });
+  }, [timerID]);
 
   function handleNextClick() {
     if (animation === PLAY) {
       return null;
     }
-    setCountry(countries[Math.floor(Math.random() * countries.length)]);
+
     setAnimation(PLAY);
-    const timer = setTimeout(() => {
-      setAnimation(STOP);
-    }, 4000);
-    setTimerID(timer);
+    setCountry(countries[Math.floor(Math.random() * countries.length)]);
   }
 
   return (
@@ -76,7 +80,7 @@ function Card({ countries, changeRegion }) {
         </span>
       )}
       <button onClick={handleNextClick}>Next Capital</button>
-      <button onClick={changeRegion}>Change region</button>
+      <button onClick={unsetRegion}>Change region</button>
     </div>
   );
 }

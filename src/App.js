@@ -6,12 +6,12 @@ function App() {
   const [regionChoice, setRegionChoice] = useState(null);
   const [countries, setCountries] = useState([]);
 
-  function handleChange(e) {
+  function chooseRegion(e) {
     setRegionChoice(e.target.value);
     setCountries([]);
   }
 
-  function changeRegion() {
+  function unsetRegion() {
     setRegionChoice(null);
   }
 
@@ -29,11 +29,11 @@ function App() {
   );
 
   return (
-    <div className="App" onChange={handleChange}>
+    <div className="App">
       {regionChoice === null && (
         <div>
           <h2>Select a region to study.</h2>
-          <select className="region-choice">
+          <select className="region-choice" onChange={chooseRegion}>
             <option value={null}>---</option>
             <option value="africa">Africa</option>
             <option value="americas">Americas</option>
@@ -44,7 +44,7 @@ function App() {
         </div>
       )}
       {regionChoice && countries && (
-        <Card changeRegion={changeRegion} countries={countries}></Card>
+        <Card unsetRegion={unsetRegion} countries={countries}></Card>
       )}
     </div>
   );
