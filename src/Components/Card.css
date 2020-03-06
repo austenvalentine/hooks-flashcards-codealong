@@ -4,13 +4,13 @@
 
 .answer {
   opacity: 0;
-  animation-name: answer-play;
+  animation-name: answer-show;
   animation-timing-function: linear;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 
-@keyframes answer-play {
+@keyframes answer-show {
   0% {
     opacity: 0;
   }
