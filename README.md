@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Hooks Flashcard Code Along
 
-## Available Scripts
+## Part 1: Fetching Data
 
-In the project directory, you can run:
+### The Select Menu
 
-### `npm start`
+Start by deleting the contents of the `<div className="App"></div>` element. Replace the contents with JSX for the select menu:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+div>h2{Choose a region to study}+select>option[value=""]*6
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Insert the following values, each corresponding with one option:
 
-### `npm test`
+```
+{null}
+africa
+americas
+asia
+europe
+oceania
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Insert the following content, each corresponding with one option:
 
-### `npm run build`
+```
+---
+Africa
+Americas
+Asia
+Europe
+Oceania
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Change state with the select input by using the `useState` hook.
+Import `useState` in line 1 of your `App.js`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+import React, { useState } from 'react';
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a `regionChoice` state variable by calling useState at the top of the definition of the `App` functional component.
 
-### `npm run eject`
+```
+const [regionChoice, setRegionChoice] = useState(null);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Add an `onChange` event handler to the `select` element. Call it `chooseRegion`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+<select className="region-choice" onChange={chooseRegion}>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Under the useState call at the top of the App component definition, write the function definition for the `chooseRegion` event handler.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+function App() {
+  const [regionChoice, setRegionChoice] = useState(null);
 
-## Learn More
+  function chooseRegion(e) {
+    setRegionChoice(e.target.value);
+    setCountries([]);
+  }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```

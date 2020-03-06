@@ -42,7 +42,7 @@ function App() {
             <option value="americas">Americas</option>
             <option value="asia">Asia</option>
             <option value="europe">Europe</option>
-            <option value="oceania"></option>
+            <option value="oceania">Oceania</option>
           </select>
         </div>
       )}
