@@ -48,6 +48,10 @@ function Card({ countries, returnToRegionMenu }) {
         </p>
       </div>
       <div className="answer-container">
+        {country && showAnswer === false && (
+          <div className="question-mark">?</div>
+        )}
+        {/* Data ready and timer must be done before rendering answer. */}
         {country && showAnswer === true && (
           <div className="answer">
             <p className="country-name">{country && country.name}</p>

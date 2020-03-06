@@ -6,6 +6,7 @@ function App() {
   const [regionChoice, setRegionChoice] = useState(null);
   const [countries, setCountries] = useState([]);
 
+  // get the region name from the select menu
   function chooseRegion(e) {
     setRegionChoice(e.target.value);
     setCountries([]);
@@ -16,6 +17,7 @@ function App() {
     setRegionChoice(null);
   }
 
+  // fetch data when a region is chosen
   useEffect(
     function() {
       if (regionChoice !== null) {
@@ -44,6 +46,7 @@ function App() {
           </select>
         </div>
       )}
+      {/* Make sure the data is ready before rendering the card component */}
       {regionChoice && countries && (
         <Card
           returnToRegionMenu={returnToRegionMenu}

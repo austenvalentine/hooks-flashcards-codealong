@@ -2,6 +2,12 @@
   min-height: 150px;
 }
 
+.question-mark {
+  padding-left: 40px;
+  font-size: 80px;
+  font-weight: bold;
+}
+
 .answer {
   opacity: 0;
   animation-name: answer-show;
