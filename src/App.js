@@ -11,7 +11,8 @@ function App() {
     setCountries([]);
   }
 
-  function unsetRegion() {
+  // the Card calls this to go back to the region menu
+  function returnToRegionMenu() {
     setRegionChoice(null);
   }
 
@@ -44,7 +45,10 @@ function App() {
         </div>
       )}
       {regionChoice && countries && (
-        <Card unsetRegion={unsetRegion} countries={countries}></Card>
+        <Card
+          returnToRegionMenu={returnToRegionMenu}
+          countries={countries}
+        ></Card>
       )}
     </div>
   );

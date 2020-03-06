@@ -1,32 +1,26 @@
-.progress-bar {
-  height: 100px;
-  border-radius: 50px;
-  background: linear-gradient(
-    90deg,
-    rgba(168, 206, 105, 1) 50%,
-    rgba(245, 216, 68, 1) 50%
-  );
-  background-size: 200%;
+.answer-container {
+  min-height: 150px;
 }
 
-.progress-play {
-  animation: progress-play linear 3s forwards;
+.answer {
+  opacity: 0;
+  animation-name: answer-play;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
-.progress-bar-stop {
-  background-position: 0%;
-}
-
-@keyframes progress-play {
+@keyframes answer-play {
   0% {
-    background-position: 100%;
+    opacity: 0;
   }
   100% {
-    background-position: 0%;
+    opacity: 1;
   }
 }
 
-.capital-name {
+.capital-name,
+.country-name {
   font-weight: bold;
 }
 
@@ -34,53 +28,6 @@
   height: 100px;
 }
 
-.country-flag-play {
-  opacity: 0;
-  animation-name: country-flag-play;
-  animation-timing-function: linear;
-  animation-duration: 1s;
-  animation-delay: 3s;
-  animation-fill-mode: forwards;
-}
-
-.country-flag-stop {
-  opacity: 1;
-}
-
-@keyframes country-flag-play {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.country-name {
-  font-weight: bold;
-}
-
-.country-name-play {
-  opacity: 0;
-  animation-name: country-flag-play;
-  animation-timing-function: linear;
-  animation-duration: 1s;
-  animation-delay: 3s;
-  animation-fill-mode: forwards;
-}
-
-.country-name-stop {
-  opacity: 1;
-}
-
-@keyframes country-play {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .country-flag img {
   height: 100%;
 }
