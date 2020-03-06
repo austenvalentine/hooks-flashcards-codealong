@@ -36,7 +36,11 @@ function App() {
       {regionChoice === null && (
         <div>
           <h2>Select a region to study.</h2>
-          <select className="region-choice" onChange={chooseRegion}>
+          <select
+            className="region-choice"
+            value={regionChoice}
+            onChange={chooseRegion}
+          >
             <option value={null}>---</option>
             <option value="africa">Africa</option>
             <option value="americas">Americas</option>
