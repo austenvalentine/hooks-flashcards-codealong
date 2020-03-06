@@ -10,21 +10,14 @@ function Card({ countries, unsetRegion }) {
   const [timerID, setTimerID] = useState(null);
 
   useEffect(() => {
-    if (timerID === null && animation === PLAY) {
+    // don't call a new setTimeout unless the previous setTimeout clears
+    if (timerID === null) {
       const timer = setTimeout(() => {
         setAnimation(STOP);
         setTimerID(null);
-      }, 4000);
+      }, 5000);
       setTimerID(timer);
     }
-  }, [animation, country, countries, timerID]);
-
-  useEffect(() => {
-    setCountry(countries[Math.floor(Math.random() * countries.length)]);
-    setAnimation(PLAY);
-  }, [countries]);
-
-  useEffect(() => {
     return function() {
       // clear timeout before unmounting card component
       // to prevent memory leak
@@ -32,11 +25,15 @@ function Card({ countries, unsetRegion }) {
     };
   }, [timerID]);
 
+  useEffect(() => {
+    setCountry(countries[Math.floor(Math.random() * countries.length)]);
+    setAnimation(PLAY);
+  }, [countries]);
+
   function handleNextClick() {
     if (animation === PLAY) {
       return null;
     }
-
     setAnimation(PLAY);
     setCountry(countries[Math.floor(Math.random() * countries.length)]);
   }
