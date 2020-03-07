@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Card.css";
 
 function Card({ countries, returnToRegionMenu }) {
-  const [country, setCountry] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [timerID, setTimerID] = useState(null);
+
+  // Pick a country at random whenever the component renders.
+  const country = countries[Math.floor(Math.random() * countries.length)];
 
   // Check if card needs a new timer every time there's a change to the timer
   // state. That includes when the Card component first mounts.
@@ -24,19 +26,12 @@ function Card({ countries, returnToRegionMenu }) {
     };
   }, [timerID, showAnswer]);
 
-  // Pick the first country when the component mounts.
-  useEffect(() => {
-    setCountry(countries[Math.floor(Math.random() * countries.length)]);
-    setShowAnswer(false);
-  }, [countries]);
-
   function handleNextClick() {
     // Don't accept clicks if timer is running.
     if (showAnswer === false) {
       return null;
     }
     setShowAnswer(false);
-    setCountry(countries[Math.floor(Math.random() * countries.length)]);
   }
 
   return (
