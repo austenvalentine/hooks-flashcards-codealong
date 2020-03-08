@@ -1,5 +1,9 @@
 # React Hooks Flashcard Code Along
 
+## Part 0: Getting Prepared
+
+Have [emmet for JSX enabled in VSCode settings](https://code.visualstudio.com/docs/editor/emmet#_emmet-abbreviations-in-other-file-types).
+
 ## Part 1: Fetching Data
 
 ### The Select Menu
@@ -13,7 +17,7 @@ div>h2{Choose a region to study}+select>option[value=""]*6
 Insert the following values, each corresponding with one option:
 
 ```
-{null}
+{""}
 africa
 americas
 asia
@@ -64,7 +68,7 @@ function App() {
   }
 ```
 
-### `useEffect` for Fetching Data Asynchronously
+### `useEffect` for Fetching Data
 
 Add another state variable to store fetched data.
 
@@ -123,13 +127,38 @@ Once the region data has been fetched, use conditional rendering to remove the s
 )}
 ```
 
+Although it hasn't yet been built, import the `Card` component near the top of `App.js`.
+
+```
+import React, { useState, useEffect } from "react";
+import Card from "./Components/Card";
+```
+
+Once a region is chosen and the data is fetched, conditionally render the `Card` component. `Card` will accept
+`countries` as a prop.
+
+```
+          </select>
+        </div>
+      )}
+
+      {regionChoice && countries && (
+        <Card
+          countries={countries}
+        ></Card>
+      )}
+    </div>
+  );
+}
+```
+
 ## Part 2: Timed Flashcards
 
 ### Setting Up Component Files
 
 Create a `/src/Components/Card.js` component file and a `/src/Components/Card.css` stylesheet.
 
-Copy the following rule sets in to the stylesheet.
+Copy the following rule sets into the stylesheet.
 
 ```
 .answer-container {
@@ -182,8 +211,74 @@ import React from 'react';
 import 'Card.css';
 
 function Card () {
-
+  return (
+    <div className="card"></div>
+  )
 }
 
 export default Card;
+```
+
+`Card` destructures the props object to reference `countries`.
+`console.log(countries)` to verify that data is being fetched and passed to
+`Card` via props.
+
+```
+function Card ({ countries }) {
+  console.log(countries);
+```
+
+Create JSX for the `Card` component.
+
+```
+.card>.prompt>p>span.capital-name^{ is the capital of}^.answer-container
+```
+
+Import `useState` and create a state variable called `country`. `country` will hold the value of the country to be learned.
+
+```
+import React, { useState } from "react";
+import "./Card.css";
+
+function Card({ countries, returnToRegionMenu }) {
+  const [country, setCountry] = useState(null)
+```
+
+Import `useEffect` and call it to pick the first country when the component mounts.
+
+```
+import React, { useState, useEffect } from "react";
+...
+
+...
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    const newCountry = countries[randomIndex];
+    setCountry(newCountry);
+  }, [country, countries]);
+
+```
+
+If `country` doesn't contain data, display an error message to the user.
+
+```
+if (!country) {
+  return <p><strong>Please reconnect to the internet and refresh the browser.</strong></p>;
+}
+
+return (
+  <div className="card">
+```
+
+Insert an expression into the JSX to display the capital of the current country.
+
+```
+return (
+  <div className="card">
+    <div className="prompt">
+      <p>
+        <span className="capital-name">{country.capital}</span> is the capital
+        of
+      </p>
+    </div>
 ```
