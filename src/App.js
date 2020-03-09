@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import Card from "./Components/Card";
+import "./App.css";
 
 function App() {
-  const [regionChoice, setRegionChoice] = useState(null);
+  const [regionChoice, setRegionChoice] = useState("");
   const [countries, setCountries] = useState([]);
 
+  // get the region name from the select menu
   function chooseRegion(e) {
     setRegionChoice(e.target.value);
     setCountries([]);
   }
 
-  function unsetRegion() {
-    setRegionChoice(null);
+  // the Card calls this to go back to the region menu
+  function returnToRegionMenu() {
+    setRegionChoice("");
   }
 
+  // fetch data when a region is chosen
   useEffect(
     function() {
-      if (regionChoice !== null) {
+      if (regionChoice !== "") {
         fetch(`https://restcountries.eu/rest/v2/region/${regionChoice}`)
           .then(response => response.json())
           .then(newCountries => {
@@ -30,21 +33,29 @@ function App() {
 
   return (
     <div className="App">
-      {regionChoice === null && (
+      {regionChoice === "" && (
         <div>
           <h2>Select a region to study.</h2>
-          <select className="region-choice" onChange={chooseRegion}>
-            <option value={null}>---</option>
+          <select
+            className="region-choice"
+            value={regionChoice}
+            onChange={chooseRegion}
+          >
+            <option value={""}>---</option>
             <option value="africa">Africa</option>
             <option value="americas">Americas</option>
             <option value="asia">Asia</option>
             <option value="europe">Europe</option>
-            <option value="oceania"></option>
+            <option value="oceania">Oceania</option>
           </select>
         </div>
       )}
+      {/* Make sure the data is ready before rendering the card component */}
       {regionChoice && countries && (
-        <Card unsetRegion={unsetRegion} countries={countries}></Card>
+        <Card
+          returnToRegionMenu={returnToRegionMenu}
+          countries={countries}
+        ></Card>
       )}
     </div>
   );
