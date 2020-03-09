@@ -293,3 +293,123 @@ return (
         </div>
       </div>
 ```
+
+### Hiding the Answer
+
+Conditionally render the answer with a new state variable, `showAnswer`. Declare `showAnswer` after `country`, near the top of the component definition.
+
+```
+function Card({ countries, returnToRegionMenu }) {
+  const [country, setCountry] = useState(null);
+  const [showAnswer, setShowAnswer] = useState(false);
+```
+
+Setting the value to `false` shows a question mark. Setting the value to
+`true` reveals the answer.
+
+```
+<div className="answer-container">
+  {showAnswer === false && <div className="question-mark">?</div>}
+  {showAnswer === true && (
+    <div className="answer">
+      <p className="country-name">{country.name}</p>
+      <div className="country-flag">
+        <img src={country.flag} alt={`flag of ${country.name}`}></img>
+      </div>
+    </div>
+  )}
+</div>
+```
+
+### Delaying the Answer
+
+Set a timeout to delay the answer reveal by 5000 milliseconds. Only create a
+timeout when the answer gets hidden.
+
+```
+ useEffect(() => {
+    if (showAnswer === false) {
+      const timer = setTimeout(() => {
+        setShowAnswer(true);
+      }, 5000);
+    }
+  }, [showAnswer]);
+```
+
+### Pick Another Country
+
+Create a `Next Capital` button at the bottom of the component definition.
+
+```
+        <img src={country.flag} alt={`flag of ${country.name}`}></img>
+      </div>
+    </div>
+  )}
+</div>
+<button onClick={handleNextClick}>Next Capital</button>
+```
+
+With the click event handler, give the user the ability to randomly pick a new country and reset the timer. Clear the value of the current country and hide the answer. The handler has logic to prevent `country` from being reset multiple times while the answer is hidden.
+
+```
+    }, 5000);
+  }
+}, [showAnswer]);
+
+function handleNextClick() {
+  if (showAnswer === false) {
+    return null;
+  }
+  setCountry(null);
+  setShowAnswer(false);
+}
+```
+
+### Pick Another Region
+
+Create a `Change Region` button at the bottom of the component definition.
+
+```
+<button onClick={handleNextClick}>Next Capital</button>
+      <button onClick={returnToRegionMenu}>Change Region</button>
+    </div>
+  );
+}
+```
+
+The click handler will be defined in the parent component, `App`, because setting the `regionChoice` in `App` to an empty string will render the `select` menu instead of rendering the `Card` component. For `Card` click events to modify the state of `App.js`, `returnToRegionMenu` must be passed to `Card` as a prop.
+
+In `Card.js`, reference `returnToRegionMenu` by destructuring the props object.
+
+```
+function Card({ countries, returnToRegionMenu }) {
+```
+
+In `App.js`, define `returnToRegionMenu` and pass it to `Card` as a prop.
+
+```
+function returnToRegionMenu() {
+  setRegionChoice("");
+}
+
+...
+
+return (
+  <div className="App">
+    {regionChoice === "" && (
+      <div>
+
+...
+
+      </div>
+    )}
+    {regionChoice && countries && (
+      <Card
+        returnToRegionMenu={returnToRegionMenu}
+        countries={countries}
+      ></Card>
+    )}
+  </div>
+);
+
+```

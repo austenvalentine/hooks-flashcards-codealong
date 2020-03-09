@@ -74,7 +74,7 @@ function Card({ countries, returnToRegionMenu }) {
         )}
       </div>
       <button onClick={handleNextClick}>Next Capital</button>
-      <button onClick={returnToRegionMenu}>Change region</button>
+      <button onClick={returnToRegionMenu}>Change Region</button>
     </div>
   );
 }
