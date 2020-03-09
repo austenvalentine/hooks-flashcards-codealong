@@ -39,25 +39,25 @@ Oceania
 Change state with the select input by using the `useState` hook.
 Import `useState` in line 1 of your `App.js`.
 
-```js
+```javascript
 import React, { useState } from "react";
 ```
 
 Create a `regionChoice` state variable by calling useState at the top of the definition of the `App` functional component.
 
-```js
+```javascript
 const [regionChoice, setRegionChoice] = useState(null);
 ```
 
 Add an `onChange` event handler to the `select` input. Call it `chooseRegion`. Control the select input with `regionChoice` as the `value`.
 
-```js
+```javascript
 <select className="region-choice" onChange={chooseRegion} value={regionChoice}>
 ```
 
 Under the useState call at the top of the App component definition, write the function definition for the `chooseRegion` event handler. Open the browser console and test the onChange event with the select element.
 
-```js
+```javascript
 function App() {
   const [regionChoice, setRegionChoice] = useState(null);
 
@@ -72,7 +72,7 @@ function App() {
 
 Add another state variable to store fetched data.
 
-```js
+```javascript
 function App() {
   const [regionChoice, setRegionChoice] = useState(null);
   const [countries, setCountries] = useState([]);
@@ -81,13 +81,13 @@ function App() {
 
 Go back to line 1 of `App.js` to import useEffect.
 
-```js
+```javascript
 import React, { useState, useEffect } from "react";
 ```
 
 Before the component's `return` statement, set up a `useEffect` to be triggered by changes to the `regionChoice` state. The useEffect's callback will fetch data when a region is chosen.
 
-```js
+```javascript
 useEffect(
   function() {
     if (regionChoice !== null) {
