@@ -2,7 +2,7 @@
 
 ## Part 0: Getting Prepared
 
-Have [emmet for JSX enabled in VSCode settings](https://code.visualstudio.com/docs/editor/emmet#_emmet-abbreviations-in-other-file-types).
+[Enable emmet for JSX in VSCode settings](https://code.visualstudio.com/docs/editor/emmet#_emmet-abbreviations-in-other-file-types).
 
 ## Part 1: Fetching Data
 
@@ -219,6 +219,14 @@ function Card () {
 export default Card;
 ```
 
+Create JSX for the `Card` component.
+
+```
+.card>.prompt>p>span.capital-name^{ is the capital of}^.answer-container>.answer>p.country-name+.country-flag>img
+```
+
+## Receiving Props and Picking a Country
+
 `Card` destructures the props object to reference `countries`.
 `console.log(countries)` to verify that data is being fetched and passed to
 `Card` via props.
@@ -226,12 +234,6 @@ export default Card;
 ```
 function Card ({ countries }) {
   console.log(countries);
-```
-
-Create JSX for the `Card` component.
-
-```
-.card>.prompt>p>span.capital-name^{ is the capital of}^.answer-container
 ```
 
 Import `useState` and create a state variable called `country`. `country` will hold the value of the country to be learned.
@@ -255,7 +257,7 @@ import React, { useState, useEffect } from "react";
     const randomIndex = Math.floor(Math.random() * countries.length);
     const newCountry = countries[randomIndex];
     setCountry(newCountry);
-  }, [country, countries]);
+  }, [countries, country]);
 
 ```
 
@@ -270,15 +272,24 @@ return (
   <div className="card">
 ```
 
-Insert an expression into the JSX to display the capital of the current country.
+Insert expressions into the JSX to display the capital of the current
+country, the country name, and the country flag.
 
 ```
 return (
-  <div className="card">
-    <div className="prompt">
-      <p>
-        <span className="capital-name">{country.capital}</span> is the capital
-        of
-      </p>
-    </div>
+    <div className="card">
+      <div className="prompt">
+        <p>
+          <span className="capital-name">{country.capital}</span> is the capital
+          of
+        </p>
+      </div>
+      <div className="answer-container">
+        <div className="answer">
+          <p className="country-name">{country.name}</p>
+          <div className="country-flag">
+            <img src={country.flag} alt={`flag of ${country.name}`}></img>
+          </div>
+        </div>
+      </div>
 ```
