@@ -225,7 +225,7 @@ Create JSX for the `Card` component.
 .card>.prompt>p>span.capital-name^{ is the capital of}^.answer-container>.answer>p.country-name+.country-flag>img
 ```
 
-## Receiving Props and Picking a Country
+### Receiving Props and Picking a Country
 
 `Card` destructures the props object to reference `countries`.
 `console.log(countries)` to verify that data is being fetched and passed to
@@ -272,7 +272,7 @@ return (
   <div className="card">
 ```
 
-Insert expressions into the JSX to display the capital of the current
+Insert expressions into the JSX displaying the capital of the current
 country, the country name, and the country flag.
 
 ```
