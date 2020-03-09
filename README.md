@@ -39,25 +39,25 @@ Oceania
 Change state with the select input by using the `useState` hook.
 Import `useState` in line 1 of your `App.js`.
 
-```
-import React, { useState } from 'react';
+```js
+import React, { useState } from "react";
 ```
 
 Create a `regionChoice` state variable by calling useState at the top of the definition of the `App` functional component.
 
-```
+```js
 const [regionChoice, setRegionChoice] = useState(null);
 ```
 
 Add an `onChange` event handler to the `select` input. Call it `chooseRegion`. Control the select input with `regionChoice` as the `value`.
 
-```
+```js
 <select className="region-choice" onChange={chooseRegion} value={regionChoice}>
 ```
 
 Under the useState call at the top of the App component definition, write the function definition for the `chooseRegion` event handler. Open the browser console and test the onChange event with the select element.
 
-```
+```js
 function App() {
   const [regionChoice, setRegionChoice] = useState(null);
 
@@ -72,7 +72,7 @@ function App() {
 
 Add another state variable to store fetched data.
 
-```
+```js
 function App() {
   const [regionChoice, setRegionChoice] = useState(null);
   const [countries, setCountries] = useState([]);
@@ -81,13 +81,13 @@ function App() {
 
 Go back to line 1 of `App.js` to import useEffect.
 
-```
-import React, { useState, useEffect } from 'react';
+```js
+import React, { useState, useEffect } from "react";
 ```
 
 Before the component's `return` statement, set up a `useEffect` to be triggered by changes to the `regionChoice` state. The useEffect's callback will fetch data when a region is chosen.
 
-```
+```js
 useEffect(
   function() {
     if (regionChoice !== null) {
@@ -107,29 +107,31 @@ useEffect(
 
 Once the region data has been fetched, use conditional rendering to remove the select menu html from the DOM.
 
-```
-{regionChoice === null && (
-  <div>
-    <h2>Select a region to study.</h2>
-    <select
-      className="region-choice"
-      value={regionChoice}
-      onChange={chooseRegion}
-    >
-      <option value={null}>---</option>
-      <option value="africa">Africa</option>
-      <option value="americas">Americas</option>
-      <option value="asia">Asia</option>
-      <option value="europe">Europe</option>
-      <option value="oceania">Oceania</option>
-    </select>
-  </div>
-)}
+```javascript
+{
+  regionChoice === null && (
+    <div>
+      <h2>Select a region to study.</h2>
+      <select
+        className="region-choice"
+        value={regionChoice}
+        onChange={chooseRegion}
+      >
+        <option value={null}>---</option>
+        <option value="africa">Africa</option>
+        <option value="americas">Americas</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </select>
+    </div>
+  );
+}
 ```
 
 Although it hasn't yet been built, import the `Card` component near the top of `App.js`.
 
-```
+```javascript
 import React, { useState, useEffect } from "react";
 import Card from "./Components/Card";
 ```
@@ -137,7 +139,7 @@ import Card from "./Components/Card";
 Once a region is chosen and the data is fetched, conditionally render the `Card` component. `Card` will accept
 `countries` as a prop.
 
-```
+```javascript
           </select>
         </div>
       )}
@@ -160,7 +162,7 @@ Create a `/src/Components/Card.js` component file and a `/src/Components/Card.cs
 
 Copy the following rule sets into the stylesheet.
 
-```
+```css
 .answer-container {
   min-height: 150px;
 }
@@ -200,20 +202,17 @@ Copy the following rule sets into the stylesheet.
 .country-flag img {
   height: 100%;
 }
-
 ```
 
 In `Card.js`, import React and `Card.css`. Write a function
 declaration for the `Card` component. Export the component.
 
-```
-import React from 'react';
-import 'Card.css';
+```javascript
+import React from "react";
+import "Card.css";
 
-function Card () {
-  return (
-    <div className="card"></div>
-  )
+function Card() {
+  return <div className="card"></div>;
 }
 
 export default Card;
@@ -231,14 +230,14 @@ Create JSX for the `Card` component.
 `console.log(countries)` to verify that data is being fetched and passed to
 `Card` via props.
 
-```
+```javascript
 function Card ({ countries }) {
   console.log(countries);
 ```
 
 Import `useState` and create a state variable called `country`. `country` will hold the value of the country to be learned.
 
-```
+```javascript
 import React, { useState } from "react";
 import "./Card.css";
 
@@ -248,11 +247,11 @@ function Card({ countries, returnToRegionMenu }) {
 
 Import `useEffect` and call it to pick the first country when the component mounts.
 
-```
+```javascript
 import React, { useState, useEffect } from "react";
 ...
 
-...
+...javascript
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * countries.length);
     const newCountry = countries[randomIndex];
@@ -263,7 +262,7 @@ import React, { useState, useEffect } from "react";
 
 If `country` doesn't contain data, display an error message to the user.
 
-```
+```javascript
 if (!country) {
   return <p><strong>Please reconnect to the internet and refresh the browser.</strong></p>;
 }
@@ -275,7 +274,7 @@ return (
 Insert expressions into the JSX displaying the capital of the current
 country, the country name, and the country flag.
 
-```
+```javascript
 return (
     <div className="card">
       <div className="prompt">
@@ -298,7 +297,7 @@ return (
 
 Conditionally render the answer with a new state variable, `showAnswer`. Declare `showAnswer` after `country`, near the top of the component definition.
 
-```
+```javascript
 function Card({ countries, returnToRegionMenu }) {
   const [country, setCountry] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -307,7 +306,7 @@ function Card({ countries, returnToRegionMenu }) {
 Setting the value to `false` shows a question mark. Setting the value to
 `true` reveals the answer.
 
-```
+```javascript
 <div className="answer-container">
   {showAnswer === false && <div className="question-mark">?</div>}
   {showAnswer === true && (
@@ -326,21 +325,21 @@ Setting the value to `false` shows a question mark. Setting the value to
 Set a timeout to delay the answer reveal by 5000 milliseconds. Only create a
 timeout when the answer gets hidden.
 
-```
- useEffect(() => {
-    if (showAnswer === false) {
-      const timer = setTimeout(() => {
-        setShowAnswer(true);
-      }, 5000);
-    }
-  }, [showAnswer]);
+```javascript
+useEffect(() => {
+  if (showAnswer === false) {
+    setTimeout(() => {
+      setShowAnswer(true);
+    }, 5000);
+  }
+}, [showAnswer]);
 ```
 
 ### Pick Another Country
 
 Create a `Next Capital` button at the bottom of the component definition.
 
-```
+```javascript
         <img src={country.flag} alt={`flag of ${country.name}`}></img>
       </div>
     </div>
@@ -351,7 +350,7 @@ Create a `Next Capital` button at the bottom of the component definition.
 
 With the click event handler, give the user the ability to randomly pick a new country and reset the timer. Clear the value of the current country and hide the answer. The handler has logic to prevent `country` from being reset multiple times while the answer is hidden.
 
-```
+```javascript
     }, 5000);
   }
 }, [showAnswer]);
@@ -369,7 +368,7 @@ function handleNextClick() {
 
 Create a `Change Region` button at the bottom of the component definition.
 
-```
+```javascript
 <button onClick={handleNextClick}>Next Capital</button>
       <button onClick={returnToRegionMenu}>Change Region</button>
     </div>
@@ -381,35 +380,69 @@ The click handler will be defined in the parent component, `App`, because settin
 
 In `Card.js`, reference `returnToRegionMenu` by destructuring the props object.
 
-```
+```javascript
 function Card({ countries, returnToRegionMenu }) {
 ```
 
 In `App.js`, define `returnToRegionMenu` and pass it to `Card` as a prop.
 
-```
+```javascript
 function returnToRegionMenu() {
   setRegionChoice("");
 }
 
 ...
 
-return (
-  <div className="App">
-    {regionChoice === "" && (
-      <div>
+<Card
+  returnToRegionMenu={returnToRegionMenu}
+  countries={countries}
+></Card>
 
-...
 
-      </div>
-    )}
-    {regionChoice && countries && (
-      <Card
-        returnToRegionMenu={returnToRegionMenu}
-        countries={countries}
-      ></Card>
-    )}
-  </div>
-);
+```
 
+### Stopping Memory Leaks
+
+When `Card` is unmounted, the timeout is not cleared from memory. This leads to a memory leak whenever `returnToRegionMenu` is called.
+
+Declare a state variable, `timerID`, to keep a reference to the timeout whenever `setTimeout` is called. Its default value must be null until a timer starts.
+
+```javascript
+function Card({ countries, returnToRegionMenu }) {
+  const [country, setCountry] = useState(null);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [timerID, setTimerID] = useState(null);
+```
+
+In the timer `useEffect`, assign the timeout reference from `setTimeout` to a variable.
+Store the reference in the `timerID` state in case `returnToRegionMenu` is called.
+
+```javascript
+useEffect(() => {
+  if (showAnswer === false) {
+    const timer = setTimeout(() => {
+      setShowAnswer(true);
+      setTimerID(null);
+    }, 5000);
+    setTimerID(timer);
+  }
+```
+
+When the `Card` component unmounts, return a cleanup function from the useEffect to clear the timeout. `timerID` must be added as a dependency of the useEffect.
+
+```javascript
+    }, 5000);
+    setTimerID(timer);
+  }
+  return function() {
+    // Clear timeout before unmounting Card component to prevent memory leak.
+    clearTimeout(timerID);
+  };
+}, [timerID, showAnswer]);
+```
+
+Finally, use the `timerID` make stricter conditions for when a new `setTimeout` can be called.
+
+```javascript
+    if (showAnswer === false && timerID === null) {
 ```
