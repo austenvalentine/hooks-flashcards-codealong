@@ -435,13 +435,12 @@ When the `Card` component unmounts, return a cleanup function from the useEffect
     setTimerID(timer);
   }
   return function() {
-    // Clear timeout before unmounting Card component to prevent memory leak.
     clearTimeout(timerID);
   };
 }, [timerID, showAnswer]);
 ```
 
-Finally, use the `timerID` make stricter conditions for when a new `setTimeout` can be called.
+Finally, use the `timerID` to make stricter conditions for when a new `setTimeout` can be called.
 
 ```javascript
     if (showAnswer === false && timerID === null) {
