@@ -1,9 +1,11 @@
+import styles from "styled-components";
+
+const StyledCard = styles.div`
 .answer-container {
   min-height: 150px;
 }
 
 .question-mark {
-  padding-left: 40px;
   font-size: 80px;
   font-weight: bold;
 }
@@ -37,3 +39,6 @@
 .country-flag img {
   height: 100%;
 }
+`;
+
+export default StyledCard;

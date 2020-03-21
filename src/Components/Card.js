@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Card.css";
+import StyledCard from "./styles/StyledCard";
 
 function Card({ countries, returnToRegionMenu }) {
   const [country, setCountry] = useState(null);
@@ -54,7 +54,7 @@ function Card({ countries, returnToRegionMenu }) {
   }
 
   return (
-    <div className="card">
+    <StyledCard>
       <div className="prompt">
         <p>
           <span className="capital-name">{country.capital}</span> is the capital
@@ -75,7 +75,7 @@ function Card({ countries, returnToRegionMenu }) {
       </div>
       <button onClick={handleNextClick}>Next Capital</button>
       <button onClick={returnToRegionMenu}>Change Region</button>
-    </div>
+    </StyledCard>
   );
 }
 
