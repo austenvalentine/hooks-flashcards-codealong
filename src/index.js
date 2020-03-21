@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Normalize } from "styled-normalize";
+import GlobalStyle from "./components/styles/GlobalStyle";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -8,6 +9,7 @@ function Root() {
   return (
     <>
       <Normalize />
+      <GlobalStyle />
       <App />
     </>
   );
