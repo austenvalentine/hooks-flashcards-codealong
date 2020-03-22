@@ -9,7 +9,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 .prompt {
-  height: 4rem;
+  height: 6rem;
 }
 .answer-container {
   height: 85%;
@@ -24,7 +24,7 @@ justify-content: space-between;
   font-weight: 700;
   color: #fae896;
   height: 200px;
-  padding-top: 4rem;
+  padding-top: 6rem;
 }
 
 .answer {
@@ -53,7 +53,7 @@ justify-content: space-between;
 }
 
 .country-name {
-  height: 4rem;
+  height: 6rem;
 }
 
 .country-flag {

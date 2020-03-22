@@ -78,7 +78,7 @@ function Card({ countries, returnToRegionMenu }) {
         )}
       </div>
       <div className="buttons">
-        <button onClick={returnToRegionMenu}>Change Region</button>
+        <button onClick={returnToRegionMenu}>New Region</button>
         <button onClick={handleNextClick}>Next Capital</button>
       </div>
     </StyledCard>
