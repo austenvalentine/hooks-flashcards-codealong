@@ -22,6 +22,7 @@ justify-content: space-between;
 .question-mark {
   font-size: 15rem;
   font-weight: 700;
+  color: #fae896;
   height: 200px;
   padding-top: 4rem;
 }
@@ -85,6 +86,7 @@ button {
   color: #ff8d47;
   border: none;
   padding: 8px;
+  transition: background-color .2s, color .2s;
   
   &:hover {
     background-color: transparent;
