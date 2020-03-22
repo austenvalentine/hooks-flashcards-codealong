@@ -60,8 +60,9 @@ function App() {
           {regionChoice && countries && (
             <>
               <h2>
-                of{" "}
-                {regionChoice.charAt(0).toUpperCase() + regionChoice.slice(1)}
+                {"in " +
+                  regionChoice.charAt(0).toUpperCase() +
+                  regionChoice.slice(1)}
               </h2>
               <Card
                 returnToRegionMenu={returnToRegionMenu}

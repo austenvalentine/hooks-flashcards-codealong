@@ -8,22 +8,21 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 .prompt {
-  margin: 20px 0;
+  margin-bottom: 20px ;
 }
 .answer-container {
-  min-height: 150px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
 .question-mark {
   font-size: 15rem;
   font-weight: 700;
-  height: 40%;
-  max-height: 500px;
-  display: flex;
+  height: 180px;
   padding-top: 60px;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .answer {
@@ -51,7 +50,7 @@ justify-content: space-between;
 }
 
 .country-name {
-  margin-bottom: 20px;
+  height: 4rem;
 }
 
 .country-flag {
