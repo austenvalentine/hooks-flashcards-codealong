@@ -1,13 +1,29 @@
 import styles from "styled-components";
 
 const StyledCard = styles.div`
+font-size: 2rem;
+text-align: center;
+margin-top: 20px;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+.prompt {
+  margin: 20px 0;
+}
 .answer-container {
   min-height: 150px;
+  height: 100%;
 }
 
 .question-mark {
-  font-size: 80px;
-  font-weight: bold;
+  font-size: 15rem;
+  font-weight: 700;
+  height: 40%;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .answer {
@@ -27,17 +43,24 @@ const StyledCard = styles.div`
   }
 }
 
+
 .capital-name,
 .country-name {
   font-weight: bold;
+  
+}
+
+.country-name {
+  margin-bottom: 20px;
 }
 
 .country-flag {
-  height: 100px;
+  width: 100%;
+  
 }
 
 .country-flag img {
-  height: 100%;
+  width: 100%;
 }
 `;
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./components/Card";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
+import Main from "./components/Main";
 import StyledApp from "./components/styles/StyledApp";
 
 function App() {
@@ -37,35 +38,38 @@ function App() {
     <StyledApp>
       <Wrapper>
         <Header />
-        {regionChoice === "" && (
-          <>
-            <h2>Explore a Region</h2>
-            <select
-              className="region-choice"
-              value={regionChoice}
-              onChange={chooseRegion}
-            >
-              <option value={""}>---</option>
-              <option value="africa">Africa</option>
-              <option value="americas">Americas</option>
-              <option value="asia">Asia</option>
-              <option value="europe">Europe</option>
-              <option value="oceania">Oceania</option>
-            </select>
-          </>
-        )}
-        {/* Make sure the data is ready before rendering the card component */}
-        {regionChoice && countries && (
-          <>
-            <h2>
-              of {regionChoice.charAt(0).toUpperCase() + regionChoice.slice(1)}
-            </h2>
-            <Card
-              returnToRegionMenu={returnToRegionMenu}
-              countries={countries}
-            />
-          </>
-        )}
+        <Main>
+          {regionChoice === "" && (
+            <>
+              {/* <h2>Explore a Region</h2> */}
+              <select
+                className="region-choice"
+                value={regionChoice}
+                onChange={chooseRegion}
+              >
+                <option value={""}>Explore a Region</option>
+                <option value="africa">Africa</option>
+                <option value="americas">Americas</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+              </select>
+            </>
+          )}
+          {/* Make sure the data is ready before rendering the card component */}
+          {regionChoice && countries && (
+            <>
+              <h2>
+                of{" "}
+                {regionChoice.charAt(0).toUpperCase() + regionChoice.slice(1)}
+              </h2>
+              <Card
+                returnToRegionMenu={returnToRegionMenu}
+                countries={countries}
+              />
+            </>
+          )}
+        </Main>
       </Wrapper>
     </StyledApp>
   );

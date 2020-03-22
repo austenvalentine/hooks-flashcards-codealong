@@ -55,13 +55,13 @@ function Card({ countries, returnToRegionMenu }) {
 
   return (
     <StyledCard>
-      <div className="prompt">
-        <p>
-          <span className="capital-name">{country.capital}</span> is the capital
-          of
-        </p>
-      </div>
       <div className="answer-container">
+        <div className="prompt">
+          <p>
+            <span className="capital-name">{country.capital}</span> is the
+            capital of
+          </p>
+        </div>
         {showAnswer === false && <div className="question-mark">?</div>}
         {/* Data is ready and timer must be complete before rendering answer. */}
         {showAnswer === true && (
@@ -73,8 +73,10 @@ function Card({ countries, returnToRegionMenu }) {
           </div>
         )}
       </div>
-      <button onClick={handleNextClick}>Next Capital</button>
-      <button onClick={returnToRegionMenu}>Change Region</button>
+      <div className="buttons">
+        <button onClick={handleNextClick}>Next Capital</button>
+        <button onClick={returnToRegionMenu}>Change Region</button>
+      </div>
     </StyledCard>
   );
 }
