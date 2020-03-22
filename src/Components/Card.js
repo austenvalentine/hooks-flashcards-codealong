@@ -68,7 +68,11 @@ function Card({ countries, returnToRegionMenu }) {
           <div className="answer">
             <p className="country-name">{country.name}</p>
             <div className="country-flag">
-              <img src={country.flag} alt={`flag of ${country.name}`}></img>
+              <img
+                // src="https://restcountries.eu/data/npl.svg"
+                src={country.flag}
+                alt={`flag of ${country.name}`}
+              ></img>
             </div>
           </div>
         )}

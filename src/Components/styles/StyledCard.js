@@ -3,7 +3,6 @@ import styles from "styled-components";
 const StyledCard = styles.div`
 font-size: 2rem;
 text-align: center;
-margin-top: 20px;
 height: 100%;
 display: flex;
 flex-direction: column;
@@ -22,6 +21,7 @@ justify-content: space-between;
   height: 40%;
   max-height: 500px;
   display: flex;
+  padding-top: 60px;
   flex-direction: column;
   justify-content: center;
 }
@@ -56,11 +56,20 @@ justify-content: space-between;
 
 .country-flag {
   width: 100%;
-  
+  height: 200px;
+  filter: drop-shadow(0 0 2rem #883311cc);
+  z-index: -1;
 }
 
 .country-flag img {
+  object-fit: scale-down;
   width: 100%;
+  height: 100%;
+  
+}
+
+.buttons {
+  z-index: 10;
 }
 `;
 
