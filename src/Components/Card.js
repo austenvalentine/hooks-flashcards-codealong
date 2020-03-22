@@ -58,8 +58,10 @@ function Card({ countries, returnToRegionMenu }) {
       <div className="answer-container">
         <div className="prompt">
           <p>
-            <span className="capital-name">{country.capital}</span> is the
-            capital of
+            <span className="capital-name">
+              {country.capital ? country.capital : country.name}
+            </span>{" "}
+            is the capital of
           </p>
         </div>
         {showAnswer === false && <div className="question-mark">?</div>}

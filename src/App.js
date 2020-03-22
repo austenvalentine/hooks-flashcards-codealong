@@ -60,7 +60,7 @@ function App() {
           {regionChoice && countries && (
             <>
               <h2>
-                {"in " +
+                {(regionChoice === "americas" ? "in The " : "in ") +
                   regionChoice.charAt(0).toUpperCase() +
                   regionChoice.slice(1)}
               </h2>
