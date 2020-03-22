@@ -8,10 +8,10 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 .prompt {
-  margin-bottom: 20px ;
+  height: 4rem;
 }
 .answer-container {
-  height: 100%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,8 +21,8 @@ justify-content: space-between;
 .question-mark {
   font-size: 15rem;
   font-weight: 700;
-  height: 180px;
-  padding-top: 60px;
+  height: 200px;
+  padding-top: 4rem;
 }
 
 .answer {
