@@ -9,8 +9,8 @@ function Card({ countries, returnToRegionMenu }) {
   // Pick a country.
   useEffect(() => {
     if (!country && showAnswer === false) {
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      // const randomIndex = 11; // Americas: United States Minor Outlying Islands
+      // const randomIndex = Math.floor(Math.random() * countries.length);
+      const randomIndex = 11; // Americas: United States Minor Outlying Islands
       const newCountry = countries[randomIndex];
       setCountry(newCountry);
     }

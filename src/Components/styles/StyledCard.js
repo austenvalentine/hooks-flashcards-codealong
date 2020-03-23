@@ -56,7 +56,6 @@ flex-direction: column;
 justify-content: space-between;
 
 .answer-container {
-  padding-top: 40px;
   height: 95%;
   display: flex;
   flex-direction: column;
@@ -96,7 +95,7 @@ justify-content: space-between;
 }
 
 .country-name {
-  height: 70px;
+  min-height: 70px;
 }
 
 .country-flag {
@@ -118,6 +117,7 @@ justify-content: space-between;
   flex-flow: row;
   justify-content: space-between;
   align-items: stretch;
+  margin-top: 20px;
 }
 
 button {

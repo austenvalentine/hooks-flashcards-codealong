@@ -8,7 +8,8 @@ const StyledApp = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  h2 {
+  .regionName {
+    padding-bottom: 10px;
     font-size: 3rem;
     font-weight: 600;
     color: #e7691c;

@@ -59,7 +59,7 @@ function App() {
           {/* Make sure the data is ready before rendering the card component */}
           {regionChoice && countries && (
             <>
-              <h2>
+              <h2 className="regionName">
                 {(regionChoice === "americas" ? "in The " : "in ") +
                   regionChoice.charAt(0).toUpperCase() +
                   regionChoice.slice(1)}
