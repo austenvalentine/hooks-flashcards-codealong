@@ -14,18 +14,30 @@ const timeDrain = keyframes`
 0% {
   opacity: 0;
 }
-5% {
+10% {
   opacity: 1;
-  background-position-y: 90%;
+  background-position-y: 100%;
+}
+
+15% {
+  background-position-y: 10%;
+}
+
+65% {
+  background-position-y: 100%;
 }
 
 85% {
   opacity: 1;
+  background-position-y: 100%;
+}
+
+90% {
+  background-position-y: 10%;
 }
 
 95% {
   opacity: 0;
-  background-position-y: 10%;
 }
 
 100% {
@@ -71,12 +83,16 @@ justify-content: space-between;
   font-size: 15rem;
   font-weight: 700;
   height: 320px;
-  background-image: linear-gradient(0deg, #fae896 50%, #ff4d07 50%);
-  background-size: 100% 200%;
-  background-position-y: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(-30deg, #ff4d07 39.5%, #fae896 39.5%,
+    #fae896 40%, #ff4d07 40%, #ff4d07 41%, #fae896 41%, #fae896 43%, #ff4d07 43%);
+  background-size: 100% 250%;
+  background-position-y: 100%;
   background-clip: text;
   color: transparent;
-  animation: ${timeDrain} linear 6s forwards;
+  animation: ${timeDrain} linear 6s both;
 }
 
 
