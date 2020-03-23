@@ -3,8 +3,8 @@ import styles from "styled-components";
 const Wrapper = styles.div`
   height: 100%;
   width: 85%;
-  max-width: 120rem;;
-  min-width: 29rem;
+  max-width: 1200px;
+  min-width: 290px;
   margin: 0 auto;
 `;
 

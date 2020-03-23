@@ -10,6 +10,7 @@ function Card({ countries, returnToRegionMenu }) {
   useEffect(() => {
     if (!country && showAnswer === false) {
       const randomIndex = Math.floor(Math.random() * countries.length);
+      // const randomIndex = 11; // Americas: United States Minor Outlying Islands
       const newCountry = countries[randomIndex];
       setCountry(newCountry);
     }
@@ -24,7 +25,7 @@ function Card({ countries, returnToRegionMenu }) {
       const timer = setTimeout(() => {
         setShowAnswer(true);
         setTimerID(null);
-      }, 5000);
+      }, 60000);
       setTimerID(timer);
     }
     return function() {
@@ -56,18 +57,26 @@ function Card({ countries, returnToRegionMenu }) {
   return (
     <StyledCard>
       <div className="answer-container">
-        <div className="prompt">
-          <p>
-            <span className="capital-name">
-              {country.capital ? country.capital : country.name}
-            </span>{" "}
-            is the capital of
-          </p>
-        </div>
-        {showAnswer === false && <div className="question-mark">?</div>}
+        {showAnswer === false && (
+          <div className="answer">
+            <p className="prompt">
+              <span className="capital-name">
+                {country.capital ? country.capital : country.name}
+              </span>{" "}
+              is the capital of
+            </p>
+            <div className="question-mark">?</div>
+          </div>
+        )}
         {/* Data is ready and timer must be complete before rendering answer. */}
         {showAnswer === true && (
           <div className="answer">
+            <p>
+              <span className="capital-name">
+                {country.capital ? country.capital : country.name}
+              </span>{" "}
+              is the capital of
+            </p>
             <p className="country-name">{country.name}</p>
             <div className="country-flag">
               <img

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledApp = styled.div`
   height: 100vh;
-  min-height: 56.8rem;
+  // min-height: 56.8rem;
   background: linear-gradient(-10deg, #ff8d47 60%, #ffda2e 100%);
   display: flex;
   flex-direction: column;
