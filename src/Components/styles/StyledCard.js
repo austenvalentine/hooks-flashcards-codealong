@@ -13,7 +13,7 @@ const promptEnter = keyframes`
 const timeDrain = keyframes`
 0% {
   opacity: 0;
-  transform: rotateY(20deg);
+  transform: rotate3d(-1,1,0, 40deg);
 }
 10% {
   opacity: 1;
@@ -23,13 +23,15 @@ const timeDrain = keyframes`
 
 15% {
   background-position-y: 0%;
-  transform: rotateY(-20deg);
+  transform: rotate3d(1, -1, 0, 40deg);
+
   
 }
 
 65% {
   background-position-y: 100%;
-  transform: rotateY(20deg);
+  transform: rotate3d(-1, 1, 0, 40deg);
+
 }
 
 85% {
@@ -39,7 +41,8 @@ const timeDrain = keyframes`
 
 90% {
   background-position-y: 0%;
-  transform: rotateY(-20deg);
+  transform: rotate3d(1, -1, 0, 40deg);
+
 }
 
 95% {
@@ -49,7 +52,8 @@ const timeDrain = keyframes`
 100% {
   opacity: 0;
   background-position-y: 0%;
-  transform: rotateY(-20deg);
+  transform: rotate3d(1, -1, 0, 40deg);
+
 
 }
 `;
@@ -105,6 +109,8 @@ justify-content: space-between;
 
 .answer {
   position: relative;
+  perspective: 80000px;
+
 }
 
 .answer .country-name, .answer .country-flag {
