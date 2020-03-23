@@ -20,7 +20,7 @@ const timeDrain = keyframes`
 }
 
 15% {
-  background-position-y: 10%;
+  background-position-y: 0%;
 }
 
 65% {
@@ -33,7 +33,7 @@ const timeDrain = keyframes`
 }
 
 90% {
-  background-position-y: 10%;
+  background-position-y: 0%;
 }
 
 95% {
@@ -86,7 +86,7 @@ justify-content: space-between;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(-30deg, #ff4d07 39.5%, #fae896 39.5%,
+  background-image: linear-gradient(-20deg, #ff4d07 39.5%, #fae896 39.5%,
     #fae896 40%, #ff4d07 40%, #ff4d07 41%, #fae896 41%, #fae896 43%, #ff4d07 43%);
   background-size: 100% 250%;
   background-position-y: 100%;
