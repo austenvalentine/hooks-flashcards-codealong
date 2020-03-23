@@ -25,7 +25,7 @@ function Card({ countries, returnToRegionMenu }) {
       const timer = setTimeout(() => {
         setShowAnswer(true);
         setTimerID(null);
-      }, 60000);
+      }, 6000);
       setTimerID(timer);
     }
     return function() {

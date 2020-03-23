@@ -1,4 +1,49 @@
-import styles from "styled-components";
+import styles, { keyframes } from "styled-components";
+
+const promptEnter = keyframes`
+0% {
+  opacity: 0;
+}
+
+100% {
+  opacity: 1;
+}
+`;
+
+const timeDrain = keyframes`
+0% {
+  opacity: 0;
+}
+5% {
+  opacity: 1;
+  background-position-y: 90%;
+}
+
+85% {
+  opacity: 1;
+}
+
+95% {
+  opacity: 0;
+  background-position-y: 10%;
+}
+
+100% {
+  opacity: 0;
+  background-position-y: 10%;
+}
+`;
+
+const answerShow = keyframes`
+0% {
+  opacity: 0;
+  background-position: 0%;
+}
+100% {
+  opacity: 1;
+  background-position: 100%;
+}
+`;
 
 const StyledCard = styles.div`
 font-size: 1.6rem;
@@ -16,23 +61,11 @@ justify-content: space-between;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
-.answer .prompt {
-  animation-name: prompt-enter linear 2s forwards;
+.prompt {
+  animation: ${promptEnter} linear .3s forwards;
 }
-
-@keyframes prompt-enter {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 
 
 .question-mark {
@@ -44,53 +77,15 @@ justify-content: space-between;
   background-position-y: 90%;
   background-clip: text;
   color: transparent;
-  animation: time-drain linear 6s forwards;
-}
-
-@keyframes time-drain {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-    background-position-y: 90%;
-  }
-
-  85% {
-    opacity: 1;
-  }
-
-  95% {
-    opacity: 0;
-    background-position-y: 10%;
-  }
-
-  100% {
-    opacity: 0;
-    background-position-y: 10%;
-  }
-
+  animation: ${timeDrain} linear 6s forwards;
 }
 
 
 .answer .country-name, .answer .country-flag {
   opacity: 0;
-  animation-name: answer-show;
-  animation-timing-function: linear;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  animation: ${answerShow} linear 1s forwards;
 }
 
-@keyframes answer-show {
-  0% {
-    opacity: 0;
-    background-position: 0%;
-  }
-  100% {
-    opacity: 1;
-    background-position: 100%;
-  }
-}
 
 
 .capital-name,
