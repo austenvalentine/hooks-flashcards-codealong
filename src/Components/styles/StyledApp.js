@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledApp = styled.div`
   height: 100vh;
-  // min-height: 56.8rem;
   background: linear-gradient(-10deg, #ff8d47 60%, #ffda2e 100%);
   display: flex;
   flex-direction: column;
@@ -24,6 +23,20 @@ const StyledApp = styled.div`
     font-size: 2rem;
     padding: 2rem;
     outline: none;
+  }
+
+  @media (orientation: landscape) {
+    main {
+      position: relative;
+      flex-direction: row wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 70%;
+      .regionName {
+        padding-bottom: 0px;
+        text-align: left;
+      }
+    }
   }
 `;
 

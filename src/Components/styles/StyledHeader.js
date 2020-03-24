@@ -9,6 +9,13 @@ const StyledHeader = styles.header`
     font-weight: 400;
     color: #e7691c;
   }
+
+  @media (orientation: landscape) {
+    h1 {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+  }
 `;
 
 export default StyledHeader;

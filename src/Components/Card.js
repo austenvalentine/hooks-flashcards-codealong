@@ -59,23 +59,22 @@ function Card({ countries, returnToRegionMenu }) {
       <div className="answer-container">
         {showAnswer === false && (
           <div className="answer">
-            <p className="prompt">
-              <span className="capital-name">
-                {country.capital ? country.capital : country.name}
-              </span>{" "}
-              is the capital of
+            <p className="capital-name">
+              <span>{country.capital ? country.capital : country.name}</span> is
+              the capital of
             </p>
-            <div className="question-mark">?</div>
+            <p className="country-name"></p>
+            <div className="country-flag">
+              <div className="question-mark">?</div>
+            </div>
           </div>
         )}
         {/* Data is ready and timer must be complete before rendering answer. */}
         {showAnswer === true && (
           <div className="answer">
-            <p>
-              <span className="capital-name">
-                {country.capital ? country.capital : country.name}
-              </span>{" "}
-              is the capital of
+            <p className="capital-name">
+              <span>{country.capital ? country.capital : country.name}</span> is
+              the capital of
             </p>
             <p className="country-name">{country.name}</p>
             <div className="country-flag">
