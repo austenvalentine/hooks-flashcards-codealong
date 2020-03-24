@@ -6,6 +6,10 @@ const Wrapper = styles.div`
   max-width: 1200px;
   min-width: 290px;
   margin: 0 auto;
+
+  @media (orientation: landscape) and (max-height: 550px) {
+    max-width: 600px;
+  }
 `;
 
 export default Wrapper;

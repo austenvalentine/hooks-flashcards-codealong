@@ -10,7 +10,7 @@ const promptEnter = keyframes`
 }
 `;
 
-const timeDrain = keyframes`
+const glimmer = keyframes`
 0% {
   opacity: 0;
   transform: rotate3d(-1,1,0, 40deg);
@@ -53,8 +53,6 @@ const timeDrain = keyframes`
   opacity: 0;
   background-position-y: 0%;
   transform: rotate3d(1, -1, 0, 40deg);
-
-
 }
 `;
 
@@ -90,7 +88,6 @@ justify-content: space-between;
   animation: ${promptEnter} linear .3s forwards;
 }
 
-
 .question-mark {
   font-size: 15rem;
   font-weight: 700;
@@ -104,16 +101,13 @@ justify-content: space-between;
   background-position-y: 100%;
   background-clip: text;
   color: transparent;
-  animation: ${timeDrain} linear 6s both;
+  animation: ${glimmer} linear 6s both;
 }
-
 
 .answer .country-name, .answer .country-flag {
   opacity: 0;
   animation: ${answerShow} linear 1s forwards;
 }
-
-
 
 .capital-name span,
 .country-name {
@@ -175,22 +169,22 @@ button {
 }
 
 @media (orientation: landscape) and (max-height: 550px) {
-
-  
-
   .question-mark {
-    height: 100%;
+    height: auto;
     font-size: 10rem;
-    position: absolute;
-    right:0;
+    order: 20;
+    // width: 45%;
+    text-align: right;
   }
 
+  .capital-name {
+    align-self: flex-end;
+  }
 
   .country-flag {
     width: 100%;
     max-height: 120px;
   }
-
 
   .answer-container {
     height: 100%;
@@ -214,19 +208,15 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    button {
-      margin-top: 10px;
-    }
-
   }
 
+  button {
+    margin-top: 10px;
+  }
 
   .answer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: flex-end;
     align-items: flex-end;
     height: 100%;

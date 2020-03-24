@@ -32,10 +32,11 @@ const StyledApp = styled.div`
       justify-content: flex-start;
       align-items: flex-start;
       height: 70%;
-      .regionName {
-        padding-bottom: 0px;
-        text-align: left;
-      }
+    }
+
+    .regionName {
+      padding-bottom: 0px;
+      text-align: left;
     }
   }
 `;

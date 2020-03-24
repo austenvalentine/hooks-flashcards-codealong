@@ -10,7 +10,6 @@ function Card({ countries, returnToRegionMenu }) {
   useEffect(() => {
     if (!country && showAnswer === false) {
       const randomIndex = Math.floor(Math.random() * countries.length);
-      // const randomIndex = 11; // Americas: United States Minor Outlying Islands
       const newCountry = countries[randomIndex];
       setCountry(newCountry);
     }
@@ -57,35 +56,26 @@ function Card({ countries, returnToRegionMenu }) {
   return (
     <StyledCard>
       <div className="answer-container">
-        {showAnswer === false && (
-          <div className="answer">
-            <p className="capital-name">
-              <span>{country.capital ? country.capital : country.name}</span> is
-              the capital of
-            </p>
-            <p className="country-name"></p>
-            <div className="country-flag">
-              <div className="question-mark">?</div>
-            </div>
-          </div>
-        )}
-        {/* Data is ready and timer must be complete before rendering answer. */}
-        {showAnswer === true && (
-          <div className="answer">
-            <p className="capital-name">
-              <span>{country.capital ? country.capital : country.name}</span> is
-              the capital of
-            </p>
-            <p className="country-name">{country.name}</p>
-            <div className="country-flag">
-              <img
-                // src="https://restcountries.eu/data/npl.svg"
-                src={country.flag}
-                alt={`flag of ${country.name}`}
-              ></img>
-            </div>
-          </div>
-        )}
+        <div className="answer">
+          <p className="capital-name">
+            <span>{country.capital ? country.capital : country.name}</span> is
+            the capital of
+          </p>
+          {showAnswer === false && <div className="question-mark">?</div>}
+          {/* Data is ready and timer must be complete before rendering answer. */}
+          {showAnswer === true && (
+            <>
+              <p className="country-name">{country.name}</p>
+              <div className="country-flag">
+                <img
+                  // src="https://restcountries.eu/data/npl.svg"
+                  src={country.flag}
+                  alt={`flag of ${country.name}`}
+                ></img>
+              </div>
+            </>
+          )}
+        </div>
       </div>
       <div className="buttons">
         <button onClick={returnToRegionMenu}>New Region</button>
