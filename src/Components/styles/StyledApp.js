@@ -25,7 +25,7 @@ const StyledApp = styled.div`
     outline: none;
   }
 
-  @media (orientation: landscape) {
+  @media (orientation: landscape) and (max-height: 550px) {
     main {
       position: relative;
       flex-direction: row wrap;

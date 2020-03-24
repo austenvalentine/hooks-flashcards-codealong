@@ -81,6 +81,9 @@ justify-content: space-between;
 
 .answer-container {
   height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .prompt {
@@ -171,7 +174,7 @@ button {
 
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-height: 550px) {
 
   
 
@@ -179,10 +182,7 @@ button {
     height: 100%;
     font-size: 10rem;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    justify-content: center;
-    align-items: center;
+    right:0;
   }
 
 

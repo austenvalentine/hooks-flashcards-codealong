@@ -10,7 +10,7 @@ const StyledHeader = styles.header`
     color: #e7691c;
   }
 
-  @media (orientation: landscape) {
+  @media (orientation: landscape) and (max-height: 550px) {
     h1 {
       text-align: left;
       margin-bottom: 10px;
