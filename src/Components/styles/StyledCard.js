@@ -247,6 +247,12 @@ button {
   }
 }
 
+@media (min-height: 768px) {
+  .answer-container {
+    font-size: 2rem;
+  }
+}
+
 `;
 
 export default StyledCard;

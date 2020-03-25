@@ -14,17 +14,6 @@ const StyledApp = styled.div`
     color: #e7691c;
   }
 
-  select {
-    border: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 10px;
-    background: #fae896;
-    font-size: 1.5rem;
-    padding: 10px;
-  }
-
   @media (orientation: landscape) and (max-height: 550px) {
     main {
       position: relative;
