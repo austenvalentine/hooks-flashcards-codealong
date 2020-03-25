@@ -10,19 +10,19 @@ const StyledApp = styled.div`
   .regionName {
     padding-bottom: 10px;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #e7691c;
   }
 
   select {
     border: none;
-    border-radius: 1rem;
-    text-align: center;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 10px;
     background: #fae896;
-    width: 100%;
-    font-size: 2rem;
-    padding: 2rem;
-    outline: none;
+    font-size: 1.5rem;
+    padding: 10px;
   }
 
   @media (orientation: landscape) and (max-height: 550px) {

@@ -1,5 +1,15 @@
 import styles, { keyframes } from "styled-components";
 
+const checkNetwork = keyframes`
+0% {
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+}
+`;
+
 const promptEnter = keyframes`
 0% {
   opacity: 0;
@@ -77,11 +87,25 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 
+.reconnect-message {
+  height: 100%;
+  color: #ff4d07;
+  font-size: 2rem;
+  font-weight; 400;
+  opacity: 0;
+  animation: ${checkNetwork} 3s linear 2s forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+}
+
 .answer-container {
   height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.7rem;
 }
 
 .prompt {
@@ -173,7 +197,6 @@ button {
     height: auto;
     font-size: 10rem;
     order: 20;
-    // width: 45%;
     text-align: right;
   }
 
@@ -182,6 +205,7 @@ button {
   }
 
   .country-flag {
+    max-width: 45vw;
     width: 100%;
     max-height: 120px;
   }

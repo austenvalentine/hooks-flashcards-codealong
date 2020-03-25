@@ -4,6 +4,7 @@ import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import StyledApp from "./components/styles/StyledApp";
+import Dropdown from "./components/Dropdown";
 
 function App() {
   const [regionChoice, setRegionChoice] = useState("");
@@ -11,6 +12,7 @@ function App() {
 
   // get the region name from the select menu
   function chooseRegion(e) {
+    console.log(e.target);
     setRegionChoice(e.target.value);
     setCountries([]);
   }
@@ -41,19 +43,20 @@ function App() {
         <Main>
           {regionChoice === "" && (
             <>
-              {/* <h2>Explore a Region</h2> */}
-              <select
-                className="region-choice"
-                value={regionChoice}
-                onChange={chooseRegion}
-              >
-                <option value={""}>Explore a Region</option>
-                <option value="africa">Africa</option>
-                <option value="americas">Americas</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
-              </select>
+              <Dropdown>
+                <select
+                  className="region-choice"
+                  value={regionChoice}
+                  onChange={chooseRegion}
+                >
+                  <option value={""}>Explore a Region</option>
+                  <option value="africa">Africa</option>
+                  <option value="americas">Americas</option>
+                  <option value="asia">Asia</option>
+                  <option value="europe">Europe</option>
+                  <option value="oceania">Oceania</option>
+                </select>
+              </Dropdown>
             </>
           )}
           {/* Make sure the data is ready before rendering the card component */}

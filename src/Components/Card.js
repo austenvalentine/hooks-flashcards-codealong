@@ -12,6 +12,9 @@ function Card({ countries, returnToRegionMenu }) {
       const randomIndex = Math.floor(Math.random() * countries.length);
       const newCountry = countries[randomIndex];
       setCountry(newCountry);
+    } else if (country && showAnswer === false) {
+      // cache the flag image before answer reveal
+      new Image().src = country.flag;
     }
   }, [country, countries, showAnswer]);
 
@@ -45,11 +48,13 @@ function Card({ countries, returnToRegionMenu }) {
   // Ensure the data was fetched.
   if (!country) {
     return (
-      <p>
-        <strong>
-          Please reconnect to the internet and refresh the browser.
-        </strong>
-      </p>
+      <StyledCard>
+        <p class="reconnect-message">
+          <strong>
+            Please reconnect to the internet and refresh the browser.
+          </strong>
+        </p>
+      </StyledCard>
     );
   }
 
@@ -61,7 +66,11 @@ function Card({ countries, returnToRegionMenu }) {
             <span>{country.capital ? country.capital : country.name}</span> is
             the capital of
           </p>
-          {showAnswer === false && <div className="question-mark">?</div>}
+          {showAnswer === false && (
+            <div className="question-mark" aria-hidden>
+              ?
+            </div>
+          )}
           {/* Data is ready and timer must be complete before rendering answer. */}
           {showAnswer === true && (
             <>
