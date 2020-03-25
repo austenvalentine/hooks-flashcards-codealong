@@ -16,6 +16,10 @@ const StyledHeader = styles.header`
       margin-bottom: 10px;
     }
   }
+
+  @media (min-height: 768px) {
+    padding-top: 80px;
+  }
 `;
 
 export default StyledHeader;
