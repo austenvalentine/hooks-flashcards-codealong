@@ -9,8 +9,9 @@ function Card({ countries, returnToRegionMenu }) {
   // Pick a country.
   useEffect(() => {
     if (!country && showAnswer === false) {
-      const randomIndex = Math.floor(Math.random() * countries.length);
-      const newCountry = countries[randomIndex];
+      // const randomIndex = Math.floor(Math.random() * countries.length);
+      // const newCountry = countries[randomIndex];
+      const newCountry = countries[11];
       setCountry(newCountry);
     } else if (country && showAnswer === false) {
       // cache the flag image before answer reveal

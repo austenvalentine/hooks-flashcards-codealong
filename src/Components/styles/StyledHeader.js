@@ -17,8 +17,11 @@ const StyledHeader = styles.header`
     }
   }
 
-  @media (min-height: 768px) {
-    padding-top: 80px;
+  @media (min-height: 768px) and (min-width: 420px) {
+    padding-top: 60px;
+    h1{
+      font-size: 5rem;
+    }
   }
 `;
 
