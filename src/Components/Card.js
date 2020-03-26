@@ -9,9 +9,8 @@ function Card({ countries, returnToRegionMenu }) {
   // Pick a country.
   useEffect(() => {
     if (!country && showAnswer === false) {
-      // const randomIndex = Math.floor(Math.random() * countries.length);
-      // const newCountry = countries[randomIndex];
-      const newCountry = countries[11];
+      const randomIndex = Math.floor(Math.random() * countries.length);
+      const newCountry = countries[randomIndex];
       setCountry(newCountry);
     } else if (country && showAnswer === false) {
       // cache the flag image before answer reveal
@@ -50,7 +49,7 @@ function Card({ countries, returnToRegionMenu }) {
   if (!country) {
     return (
       <StyledCard>
-        <p class="reconnect-message">
+        <p className="reconnect-message">
           <strong>
             Please reconnect to the internet and refresh the browser.
           </strong>

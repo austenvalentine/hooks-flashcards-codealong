@@ -89,7 +89,7 @@ justify-content: space-between;
 
 .reconnect-message {
   height: 100%;
-  color: #ff4d07;
+  color: #fae896;
   font-size: 2rem;
   font-weight; 400;
   opacity: 0;
@@ -133,6 +133,10 @@ justify-content: space-between;
   animation: ${answerShow} linear 1s forwards;
 }
 
+.capital-name {
+  color: #883311;
+}
+
 .capital-name span,
 .country-name {
   font-weight: bold;
@@ -171,7 +175,7 @@ button {
   width: 45%;
   border-radius: 10px;
   background-color: #fae896;
-  color: #ff8d47;
+  color: #883311cc;
   border: none;
   padding: 8px;
   transition: background-color .2s, color .2s;

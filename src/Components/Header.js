@@ -4,7 +4,7 @@ import StyledHeader from "./styles/StyledHeader";
 function Header() {
   return (
     <StyledHeader>
-      <h1>Capital Cities</h1>
+      <h1>National Capitals</h1>
     </StyledHeader>
   );
 }

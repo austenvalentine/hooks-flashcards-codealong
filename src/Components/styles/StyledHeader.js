@@ -5,7 +5,7 @@ const StyledHeader = styles.header`
   padding-top: 20px;
   h1 {
     margin-bottom: 20px;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 400;
     color: #e7691c;
   }
