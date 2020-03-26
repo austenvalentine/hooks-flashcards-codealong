@@ -6,12 +6,17 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 
   .regionName {
     padding-bottom: 10px;
     font-size: 3rem;
     font-weight: 700;
     color: #e7691c;
+
+    &:hover {
+      tranform: ;
+    }
   }
 
   @media (orientation: landscape) and (max-height: 550px) {

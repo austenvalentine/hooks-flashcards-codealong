@@ -23,7 +23,7 @@ const promptEnter = keyframes`
 const glimmer = keyframes`
 0% {
   opacity: 0;
-  transform: rotate3d(-1,1,0, 40deg);
+  transform: perspective(400px) rotate3d(-1,1,0, 40deg);
 }
 10% {
   opacity: 1;
@@ -33,14 +33,14 @@ const glimmer = keyframes`
 
 15% {
   background-position-y: 0%;
-  transform: rotate3d(1, -1, 0, 40deg);
+  transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 
   
 }
 
 65% {
   background-position-y: 100%;
-  transform: rotate3d(-1, 1, 0, 40deg);
+  transform: perspective(400px) rotate3d(-1, 1, 0, 40deg);
 
 }
 
@@ -51,7 +51,7 @@ const glimmer = keyframes`
 
 90% {
   background-position-y: 0%;
-  transform: rotate3d(1, -1, 0, 40deg);
+  transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 
 }
 
@@ -62,7 +62,7 @@ const glimmer = keyframes`
 100% {
   opacity: 0;
   background-position-y: 0%;
-  transform: rotate3d(1, -1, 0, 40deg);
+  transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 }
 `;
 
@@ -178,13 +178,19 @@ button {
   color: #883311cc;
   border: none;
   padding: 8px;
-  transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s,
+              transform .2s, color .2s;
   
   &:hover {
     background-color: transparent;
     color: #fae896;
     border: 3px solid #fae896;
     padding: 5px;
+    transform: scale(1.05, 1.05);
+  }
+
+  &:focus {
+    outline: 3px cyan solid;
   }
   
   &:active {

@@ -3,13 +3,13 @@ import styled from "styled-components";
 import nanoid from "nanoid";
 
 const StyledSelectMenu = styled.div`
-  input[type="checkbox"],
-  input[type="radio"] {
-    opacity: 0;
-    position: absolute;
-    left: -999999999999px;
-    top: -999999999999px;
-  }
+  // input[type="checkbox"],
+  // input[type="radio"] {
+  //   opacity: 0;
+  //   position: absolute;
+  //   left: -999999999999px;
+  //   top: -999999999999px;
+  // }
 
   ul {
     list-style-type: none;
@@ -27,6 +27,20 @@ const StyledSelectMenu = styled.div`
 
   li {
     padding: 10px;
+    button {
+      color: inherit;
+      background-color: inherit;
+      border: inherit;
+      font-size: inherit;
+      transform-origin: right;
+      transition: 0.3s all;
+      &:hover {
+        transform: scale(1.3, 1.3);
+      }
+      &:focus {
+        outline: 3px cyan solid;
+      }
+    }
   }
 
   @media (orientation: landscape) and (max-height: 550px) {
@@ -43,25 +57,19 @@ const StyledSelectMenu = styled.div`
 `;
 
 function SelectMenu({ children }) {
-  const handleClick = children.props.onChange;
+  const handleClick = children.props.onClick;
   const inputName = "sm-" + nanoid();
   const innerChildren = [...children.props.children];
   const prompt = innerChildren.splice(0, 1);
 
   const listItems = innerChildren.map(function(innerChild, i) {
     const { children: text, value } = innerChild.props;
-    const innerChildId = nanoid();
+    // const innerChildId = nanoid();
     const htmlOutput = (
       <li key={i}>
-        <input
-          type="radio"
-          id={innerChildId}
-          value={value}
-          alt={text}
-          name={inputName}
-          onClick={handleClick}
-        />
-        <label htmlFor={innerChildId}>{text}</label>
+        <button value={value} alt={text} onClick={handleClick}>
+          {text}
+        </button>
       </li>
     );
 
@@ -74,10 +82,11 @@ function SelectMenu({ children }) {
 
   return (
     <StyledSelectMenu inputRef={List}>
-      <input aria-hidden type="checkbox" id={`toggle-${inputName}`} />
-      <label aria-hidden className="regionName" htmlFor={`toggle-${inputName}`}>
+      {/* <input aria-hidden type="checkbox" id={`toggle-${inputName}`} />
+      <label className="regionName" htmlFor={`toggle-${inputName}`}>
         {prompt}
-      </label>
+      </label> */}
+      <p className="regionName">{prompt}</p>
       <List>{listItems}</List>
     </StyledSelectMenu>
   );

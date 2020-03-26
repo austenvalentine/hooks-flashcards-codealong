@@ -1,0 +1,38 @@
+import styled from "styled-components";
+
+const StyledHelpButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  font-size: 3rem;
+  color: #883311cc;
+  font-weight: 600;
+  background-color: #fae896;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  display: ${props => props.display};
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.3, 1.3);
+  }
+  &:focus {
+    outline: 3px cyan solid;
+  }
+
+  .sr-only {
+    opacity: 0;
+    position: absolute;
+    left: -99999999999999px;
+    top: -99999999999999px;
+  }
+`;
+
+export default StyledHelpButton;

@@ -9,6 +9,7 @@ const BackgroundUnderlay = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20% bottom;
+  filter: blur(4px);
 `;
 
 export default BackgroundUnderlay;
