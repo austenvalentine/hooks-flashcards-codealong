@@ -23,45 +23,50 @@ const promptEnter = keyframes`
 const glimmer = keyframes`
 0% {
   opacity: 0;
-  transform: perspective(400px) rotate3d(-1,1,0, 40deg);
+  transform: perspective(400px) rotate3d(1,-1,0, 40deg);
 }
-10% {
+
+5% {
   opacity: 1;
-  background-position-y: 100%;
+}
+15% {
+  
+  background-position-y: 0%;
+  transform: perspective(400px) rotate3d(-1,1,0, 40deg);
   
 }
 
-15% {
-  background-position-y: 0%;
+25% {
+  background-position-y: 100%;
   transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 
   
 }
 
 65% {
-  background-position-y: 100%;
+  background-position-y: 0%;
   transform: perspective(400px) rotate3d(-1, 1, 0, 40deg);
 
 }
 
-85% {
-  opacity: 1;
-  background-position-y: 0%;
-}
+// 85% {
+//   opacity: 1;
+//   background-position-y: 100%;
+// }
 
-90% {
-  background-position-y: 0%;
-  transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
+// 90% {
+//   background-position-y: 100%;
+//   transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 
-}
+// }
 
 95% {
-  opacity: 0;
+  opacity: 1;
 }
 
 100% {
   opacity: 0;
-  background-position-y: 0%;
+  background-position-y: 100%;
   transform: perspective(800px) rotate3d(1, -1, 0, 40deg);
 }
 `;
@@ -100,7 +105,7 @@ justify-content: space-between;
   }
 }
 
-.answer-container {
+.answer-wrapper {
   height: 95%;
   display: flex;
   flex-direction: column;
@@ -124,8 +129,10 @@ justify-content: space-between;
   background-size: 100% 250%;
   background-position-y: 100%;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   color: transparent;
-  animation: ${glimmer} linear 6s both;
+  animation: ${glimmer} linear 6s forwards;
 }
 
 .answer .country-name, .answer .country-flag {
@@ -189,9 +196,6 @@ button {
     transform: scale(1.05, 1.05);
   }
 
-  &:focus {
-    outline: 3px cyan solid;
-  }
   
   &:active {
     color: #ff8d47;
@@ -220,7 +224,7 @@ button {
     max-height: 120px;
   }
 
-  .answer-container {
+  .answer-wrapper {
     height: 100%;
   }
 
@@ -258,7 +262,7 @@ button {
 }
 
 @media (min-height: 768px) {
-  .answer-container {
+  .answer-wrapper {
     font-size: 2rem;
   }
 }

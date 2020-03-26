@@ -163,7 +163,7 @@ Create a `/src/Components/Card.js` component file and a `/src/Components/Card.cs
 Copy the following rule sets into the stylesheet.
 
 ```css
-.answer-container {
+.answer-wrapper {
   min-height: 150px;
 }
 
@@ -221,7 +221,7 @@ export default Card;
 Create JSX for the `Card` component.
 
 ```
-.card>.prompt>p>span.capital-name^{ is the capital of}^.answer-container>.answer>p.country-name+.country-flag>img
+.card>.prompt>p>span.capital-name^{ is the capital of}^.answer-wrapper>.answer>p.country-name+.country-flag>img
 ```
 
 ### Receiving Props and Picking a Country
@@ -283,7 +283,7 @@ return (
           of
         </p>
       </div>
-      <div className="answer-container">
+      <div className="answer-wrapper">
         <div className="answer">
           <p className="country-name">{country.name}</p>
           <div className="country-flag">
@@ -307,7 +307,7 @@ Setting the value to `false` shows a question mark. Setting the value to
 `true` reveals the answer.
 
 ```javascript
-<div className="answer-container">
+<div className="answer-wrapper">
   {showAnswer === false && <div className="question-mark">?</div>}
   {showAnswer === true && (
     <div className="answer">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StyledCard from "./styles/StyledCard";
+import { LiveMessage } from "react-aria-live";
 
 function Card({ countries, returnToRegionMenu }) {
   const [country, setCountry] = useState(null);
@@ -60,16 +61,23 @@ function Card({ countries, returnToRegionMenu }) {
 
   return (
     <StyledCard>
-      <div className="answer-container">
-        <div className="answer">
+      <div className="answer-wrapper">
+        <LiveMessage
+          message={`${country.capital ? country.capital : country.name} is
+            the capital of`}
+          aria-live="polite"
+        />
+        <div className="answer" aria-live="polite">
           <p className="capital-name">
             <span>{country.capital ? country.capital : country.name}</span> is
             the capital of
           </p>
           {showAnswer === false && (
-            <div className="question-mark" aria-hidden>
-              ?
-            </div>
+            <>
+              <div className="question-mark" aria-hidden>
+                ?
+              </div>
+            </>
           )}
           {/* Data is ready and timer must be complete before rendering answer. */}
           {showAnswer === true && (
@@ -77,9 +85,9 @@ function Card({ countries, returnToRegionMenu }) {
               <p className="country-name">{country.name}</p>
               <div className="country-flag">
                 <img
-                  // src="https://restcountries.eu/data/npl.svg"
                   src={country.flag}
                   alt={`flag of ${country.name}`}
+                  aria-hidden
                 ></img>
               </div>
             </>

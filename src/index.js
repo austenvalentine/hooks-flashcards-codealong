@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Normalize } from "styled-normalize";
 import GlobalStyle from "./components/styles/GlobalStyle";
+import { LiveAnnouncer } from "react-aria-live";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -10,7 +11,9 @@ function Root() {
     <>
       <Normalize />
       <GlobalStyle />
-      <App />
+      <LiveAnnouncer>
+        <App />
+      </LiveAnnouncer>
     </>
   );
 }

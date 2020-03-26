@@ -3,8 +3,7 @@ import styled from "styled-components";
 import nanoid from "nanoid";
 
 const StyledSelectMenu = styled.div`
-  // input[type="checkbox"],
-  // input[type="radio"] {
+  // input[type="checkbox"] {
   //   opacity: 0;
   //   position: absolute;
   //   left: -999999999999px;
@@ -14,7 +13,7 @@ const StyledSelectMenu = styled.div`
   ul {
     list-style-type: none;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     height: 60vh;
     padding: 10px;
     padding-top: 5vh;
@@ -32,13 +31,9 @@ const StyledSelectMenu = styled.div`
       background-color: inherit;
       border: inherit;
       font-size: inherit;
-      transform-origin: right;
       transition: 0.3s all;
       &:hover {
         transform: scale(1.3, 1.3);
-      }
-      &:focus {
-        outline: 3px cyan solid;
       }
     }
   }
@@ -52,6 +47,11 @@ const StyledSelectMenu = styled.div`
       font-size: 2rem;
       text-align: right;
       height: 100%;
+    }
+    li {
+      button {
+        transform-origin: right;
+      }
     }
   }
 `;
@@ -67,7 +67,7 @@ function SelectMenu({ children }) {
     // const innerChildId = nanoid();
     const htmlOutput = (
       <li key={i}>
-        <button value={value} alt={text} onClick={handleClick}>
+        <button value={value} alt={text} onClick={handleClick} role="link">
           {text}
         </button>
       </li>

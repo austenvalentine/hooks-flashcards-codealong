@@ -5,7 +5,7 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import StyledApp from "./components/styles/StyledApp";
-import Dropdown from "./components/Dropdown";
+import Dropdown from "./components/SelectMenu";
 import Swal from "sweetalert2";
 import HelpButton from "./components/HelpButton";
 
