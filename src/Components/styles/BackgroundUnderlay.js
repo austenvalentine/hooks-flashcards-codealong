@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import skyline from "../../assets/resources/skyline.svg";
 
-const BackgroundOverlay = styled.div`
+const BackgroundUnderlay = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -11,4 +11,4 @@ const BackgroundOverlay = styled.div`
   background-position: 20% bottom;
 `;
 
-export default BackgroundOverlay;
+export default BackgroundUnderlay;

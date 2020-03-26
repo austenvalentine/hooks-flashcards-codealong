@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import BackgroundOverlay from "./components/styles/BackgroundOverlay";
+import BackgroundUnderlay from "./components/styles/BackgroundUnderlay";
 import Wrapper from "./components/Wrapper";
 import Card from "./components/Card";
 import Header from "./components/Header";
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <StyledApp>
-      <BackgroundOverlay>
+      <BackgroundUnderlay>
         <Wrapper>
           <Header />
           <Main>
@@ -77,7 +77,7 @@ function App() {
             )}
           </Main>
         </Wrapper>
-      </BackgroundOverlay>
+      </BackgroundUnderlay>
     </StyledApp>
   );
 }

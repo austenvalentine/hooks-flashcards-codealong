@@ -12,7 +12,8 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "styled-components": "^5.0.1",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "sweetalert2": "^9.10.6"
   },
   "scripts": {
     "start": "react-scripts start",
