@@ -4,14 +4,14 @@ const StyledHelpButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 4px;
+  padding-top: 3px;
   margin: 5px;
   font-size: 3rem;
   color: #883311cc;
   font-weight: 600;
   background-color: #fae896;
   border: 3px solid transparent;
-  border-radius: 100%;
+  border-radius: 5px;
   width: 40px;
   height: 40px;
   position: absolute;
@@ -24,10 +24,6 @@ const StyledHelpButton = styled.button`
   &:hover {
     transform: scale(1.2, 1.2);
   }
-  &:focus {
-    outline: 3px cyan solid;
-  }
-
   .sr-only {
     opacity: 0;
     position: absolute;

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Normalize } from "styled-normalize";
 import GlobalStyle from "./components/styles/GlobalStyle";
 import { LiveAnnouncer } from "react-aria-live";
-import App from "./App";
+import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
 function Root() {
