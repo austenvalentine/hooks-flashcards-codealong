@@ -13,7 +13,6 @@ function App() {
 
   // get the region name from the select menu
   function chooseRegion(e) {
-    console.log(e.target);
     setRegionChoice(e.target.value);
     setCountries([]);
   }
