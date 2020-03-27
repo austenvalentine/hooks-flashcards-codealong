@@ -1,5 +1,6 @@
 {
-  "name": "capitals-hooks-code-along",
+  "name": "national-capitals",
+  "homepage": "https://austenvalentine.com/capitals/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

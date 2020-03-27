@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-const StyledHelpButton = styled.button`
+const StyledHelpButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3px;
-  margin: 5px;
-  font-size: 3rem;
+  padding-top: 5px;
+  padding-left: 1px;
+  margin: 0;
+  font-size: 2.5rem;
   color: #883311cc;
   font-weight: 600;
   background-color: #fae896;
@@ -15,20 +16,27 @@ const StyledHelpButton = styled.button`
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 20px;
-  bottom: 20px;
+  left: 30px;
+  bottom: 30px;
   cursor: pointer;
-  display: ${props => props.display};
-  transition: transform 0.3s;
+  display: ${props => props.showButton};
+  transform: scale(1);
+  transform-origin: bottom left;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  backface-visibility: hidden;
+  z-index: 30;
+  opacity: 1;
 
   &:hover {
-    transform: scale(1.2, 1.2);
+    color: #883311ff;
+    transform: scale(1.1);
   }
+
   .sr-only {
     opacity: 0;
     position: absolute;
-    left: -99999999999999px;
-    top: -99999999999999px;
+    left: -33333333px;
+    top: -33333333px;
   }
 `;
 

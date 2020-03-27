@@ -7,9 +7,14 @@ html {
   
 }
 
-h1, h2, h3, h4, h5, h6, div, p {
+h1, h2, h3, h4, h5, h6, div, p, button, ul {
   margin: 0;
+  padding: 0;
   font-family: 'Spartan';
+}
+
+button {
+  cursor: pointer;
 }
 
 .swal2-modal {
@@ -35,6 +40,7 @@ h1, h2, h3, h4, h5, h6, div, p {
   background-color: #ff8d47;
   font-weight: 400;
   transition: all .3s;
+  backface-visibility: hidden;
   &:hover {
     transform: scale(1.2, 1.2);
   }

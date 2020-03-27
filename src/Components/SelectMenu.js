@@ -83,10 +83,10 @@ function SelectMenu({ children }) {
   return (
     <StyledSelectMenu inputRef={List}>
       {/* <input aria-hidden type="checkbox" id={`toggle-${inputName}`} />
-      <label className="regionName" htmlFor={`toggle-${inputName}`}>
+      <label className="region-name" htmlFor={`toggle-${inputName}`}>
         {prompt}
       </label> */}
-      <p className="regionName">{prompt}</p>
+      <p className="region-name">{prompt}</p>
       <List>{listItems}</List>
     </StyledSelectMenu>
   );

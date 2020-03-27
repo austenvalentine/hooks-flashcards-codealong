@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StyledCard from "./styles/StyledCard";
+import Spinner from "./Spinner";
 import { LiveMessage } from "react-aria-live";
 
 function Card({ countries, returnToRegionMenu }) {
@@ -14,7 +15,7 @@ function Card({ countries, returnToRegionMenu }) {
       const newCountry = countries[randomIndex];
       setCountry(newCountry);
     } else if (country && showAnswer === false) {
-      // cache the flag image before answer reveal
+      // cache flag image before answer reveal
       new Image().src = country.flag;
     }
   }, [country, countries, showAnswer]);
@@ -50,11 +51,11 @@ function Card({ countries, returnToRegionMenu }) {
   if (!country) {
     return (
       <StyledCard>
-        <p className="reconnect-message">
-          <strong>
-            Please reconnect to the internet and refresh the browser.
-          </strong>
-        </p>
+        <Spinner>
+          <p className="reconnect-message">
+            <strong>Please check network and reload page.</strong>
+          </p>
+        </Spinner>
       </StyledCard>
     );
   }
@@ -64,7 +65,7 @@ function Card({ countries, returnToRegionMenu }) {
       <div className="answer-wrapper">
         <LiveMessage
           message={`${country.capital ? country.capital : country.name} is
-            the capital of`}
+          the capital of`}
           aria-live="polite"
         />
         <div className="answer" aria-live="polite">

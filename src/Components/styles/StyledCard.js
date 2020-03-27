@@ -93,12 +93,11 @@ flex-direction: column;
 justify-content: space-between;
 
 .reconnect-message {
-  height: 100%;
   color: #fae896;
   font-size: 2rem;
   font-weight; 400;
   opacity: 0;
-  animation: ${checkNetwork} 3s linear 2s forwards;
+  animation: ${checkNetwork} 3s linear 10s forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,7 +157,7 @@ justify-content: space-between;
 .country-flag {
   width: 100%;
   height: 250px;
-  filter: drop-shadow(0 0 2rem #883311cc);
+  filter: drop-shadow(0 0 4px #8833114);
 }
 
 .country-flag img {

@@ -7,16 +7,17 @@ const StyledApp = styled.div`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  -webkit-transform: scale(1);
+  transition: -webkit-transform 0.1s;
+  &:hover {
+    -webkit-transform: scale(1);
+  }
 
-  .regionName {
+  .region-name {
     padding-bottom: 10px;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #e7691c;
-
-    &:hover {
-      tranform: ;
-    }
   }
 
   @media (orientation: landscape) and (max-height: 550px) {
@@ -28,7 +29,7 @@ const StyledApp = styled.div`
       height: 70%;
     }
 
-    .regionName {
+    .region-name {
       padding-bottom: 0px;
       text-align: left;
     }

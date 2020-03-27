@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import BackgroundUnderlay from "./styles/BackgroundUnderlay";
-import Wrapper from "./Wrapper";
-import Card from "./Card";
-import Header from "./Header";
-import Main from "./Main";
-import StyledApp from "./styles/StyledApp";
-import Dropdown from "./SelectMenu";
+import BackgroundUnderlay from "./components/styles/BackgroundUnderlay";
+import Wrapper from "./components/Wrapper";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import StyledApp from "./components/styles/StyledApp";
+import Dropdown from "./components/SelectMenu";
 import Swal from "sweetalert2";
-import HelpButton from "./HelpButton";
+import HelpButton from "./components/HelpButton";
 
 const helpMessage = {
   title: "National Capitals Flash Cards",
@@ -30,7 +30,7 @@ function App() {
   }
 
   useEffect(function() {
-    Swal.fire(helpMessage);
+    // Swal.fire(helpMessage);
   }, []);
 
   // fetch data when a region is chosen
@@ -74,7 +74,7 @@ function App() {
           {/* Make sure the data is ready before rendering the card component */}
           {regionChoice && countries && (
             <>
-              <h2 className="regionName">
+              <h2 className="region-name">
                 {(regionChoice === "americas" ? "in The " : "in ") +
                   regionChoice.charAt(0).toUpperCase() +
                   regionChoice.slice(1)}
@@ -87,10 +87,12 @@ function App() {
           )}
         </Main>
       </Wrapper>
-      <HelpButton
-        onClick={() => Swal.fire(helpMessage)}
-        showButton={regionChoice ? false : true}
-      />
+      {!regionChoice && (
+        <HelpButton
+          onClick={() => Swal.fire(helpMessage)}
+          showButton={regionChoice ? true : false}
+        />
+      )}
     </StyledApp>
   );
 }
