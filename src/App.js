@@ -5,7 +5,7 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import StyledApp from "./components/styles/StyledApp";
-import Dropdown from "./components/SelectMenu";
+import SelectMenu from "./components/SelectMenu";
 import Swal from "sweetalert2";
 import HelpButton from "./components/HelpButton";
 
@@ -55,7 +55,7 @@ function App() {
         <Main>
           {regionChoice === "" && (
             <>
-              <Dropdown>
+              <SelectMenu>
                 <select
                   className="region-choice"
                   value={regionChoice}
@@ -68,7 +68,7 @@ function App() {
                   <option value="europe">Europe</option>
                   <option value="oceania">Oceania</option>
                 </select>
-              </Dropdown>
+              </SelectMenu>
             </>
           )}
           {/* Make sure the data is ready before rendering the card component */}
